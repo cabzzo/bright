@@ -1,0 +1,112 @@
+/* custom_styles.css */
+
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    background-color: #f1f1f1;
+}
+
+/* Navbar */
+.navbar {
+    background-color: white !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.navbar .navbar-brand {
+    color: #ea4335;
+}
+
+.navbar .nav-link {
+    color: #5f6368;
+}
+
+.navbar .nav-link:hover {
+    color: #b38f00;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #ffffff;
+    height: 100vh;
+    padding: 20px 0;
+    border-right: 1px solid #e0e0e0;
+}
+
+.sidebar .btn {
+    text-align: left;
+    color: #5f6368;
+    width: 100%;
+}
+
+.sidebar .btn:hover {
+    background-color: #f8f9fa;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+.mail-list {
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.mail-list .mail-item {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.mail-list .mail-item:last-child {
+    border-bottom: none;
+}
+
+.mail-list .mail-item:hover {
+    background-color: #f8f9fa;
+}
+
+.mail-subject, .mail-preview {
+    margin: 0;
+    color: #202124;
+}
+
+.mail-sender {
+    margin: 0;
+    color: #5f6368;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #ffd249;
+    border-color: #ffd249;
+    border-radius: 30px;
+}
+
+.btn-primary:hover {
+    background-color: #fcb935; /* Darker yellow when hovered */
+    border-color: #fcb935;
+}
+
+.btn-danger {
+    background-color: #d93025;
+    border-color: #d93025;
+    border-radius: 30px;
+}
+
+/* Hyperlinks */
+a {
+    color: #ffd249;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #fcb935; /* Change color on hover */
+}
+.navbar.navbar-expand-lg {
+    background-color: white;
+}
