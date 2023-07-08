@@ -14,71 +14,80 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="{% static 'images/bright logo-01.png' %}" alt="Bright Logo" height="30">
+                <img src="{% static 'images/bright_logo-01.png' %}" alt="Bright Logo" height="40">
             </a>
-            <div class="d-flex order-lg-last">
-                <a href="#" class="nav-link d-flex align-items-center me-2" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasProfile" aria-controls="offcanvasProfile">
-                    <i class="bi bi-person-fill" style="font-size: 1.25rem;"></i>
-                </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation" style="font-size: 1.25rem;">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="#">Surface System</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Discover</a>
+                        <a class="nav-link" href="#">Study Cases</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Create & Design</a>
+                        <a class="nav-link" href="#">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Learn</a>
+                    <li class="nav-item dropdown d-lg-none">
+                        <a class="nav-link dropdown-toggle no-underline" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-fill" style="font-size: 1.2rem;"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Change Password</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Community</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Bright</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Legal</a>
+                </ul>
+            </div>
+            <div class="d-none d-lg-block">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle no-underline" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-fill" style="font-size: 1.2rem;"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Change Password</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile" aria-labelledby="offcanvasProfileLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasProfileLabel">User Profile</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="#">Edit Profile</a></li>
-                <li class="list-group-item"><a href="#">Change Password</a></li>
-                <li class="list-group-item"><a href="#">Logout</a></li>
-            </ul>
-        </div>
+    <div id="content-wrapper">
+        {% block content %}
+        {% endblock %}
     </div>
-
-    {% block content %}
-    {% endblock %}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('#navbarNav');
+        const contentWrapper = document.getElementById('content-wrapper');
+
+        navbarToggler.addEventListener('click', () => {
+            navbarCollapse.addEventListener('shown.bs.collapse', function () {
+                contentWrapper.classList.add('blur-bg');
+            })
+
+            navbarCollapse.addEventListener('hidden.bs.collapse', function () {
+                contentWrapper.classList.remove('blur-bg');
+            })
+        });
+    </script>
 </body>
 
 </html>

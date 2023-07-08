@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <!-- Hero Section -->
@@ -13,6 +15,7 @@
             </div>
             <div class="col-md-6">
                 <!-- You can add an image or an interactive visual here -->
+                <img src="{% static 'images/hero-image.png' %}" alt="Hero Image" class="img-fluid">
             </div>
         </div>
     </div>
@@ -22,7 +25,38 @@
 <section class="explore-section py-5">
     <div class="container">
         <h2 class="text-center mb-4">Explore Smart Living Spaces</h2>
-        <!-- Add more content here such as image grids or cards -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/living-space1.png' %}" class="card-img-top" alt="Living Space 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Living Space 1</h5>
+                        <p class="card-text">Description of the living space</p>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/living-space2.jpg' %}" class="card-img-top" alt="Living Space 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Living Space 2</h5>
+                        <p class="card-text">Description of the living space</p>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/living-space3.jpg' %}" class="card-img-top" alt="Living Space 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Living Space 3</h5>
+                        <p class="card-text">Description of the living space</p>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -30,11 +64,32 @@
 <section class="sustainability-section py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-4">Sustainability Stories</h2>
-        <!-- Add more content here such as articles or stories -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="{% static 'images/sustainability-story1.jpg' %}" class="card-img-top" alt="Sustainability Story 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Sustainability Story 1</h5>
+                        <p class="card-text">Description of the sustainability story</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="{% static 'images/sustainability-story2.jpg' %}" class="card-img-top" alt="Sustainability Story 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Sustainability Story 2</h5>
+                        <p class="card-text">Description of the sustainability story</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Experience Design Section -->
+<!-- Create & Design Section -->
 <section class="design-section py-5">
     <div class="container">
         <h2 class="text-center mb-4">Create & Design Your Space</h2>
@@ -45,6 +100,28 @@
     </div>
 </section>
 
-<!-- More sections as per the sitemap can be added below -->
+<!-- Footer Section -->
+<footer class="footer-section bg-light py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="social-media-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 {% endblock %}

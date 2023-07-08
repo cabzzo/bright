@@ -8,7 +8,8 @@ SECRET_KEY = 'g^t4bze^5ze8l2-6p6ch^t7o&is3u5f-3to_4!@bou%5j&6ra9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 
@@ -20,8 +21,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
 ]
 
 MIDDLEWARE = [
@@ -103,3 +102,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'letsbright', 'static'),
 ]
+import logging.config
+
+LOGGING_CONFIG = None
+logging.basicConfig(level=logging.DEBUG)

@@ -1,9 +1,7 @@
 from django.urls import path
-from letsbright import views
-from .views import register
-
+from .views import register, home, about  # Import the necessary view functions
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
+    path('', home, name='home'),
+    path('about/', about, name='about'),
 ]
