@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
+from .models import Space, Product, Design, Order
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField()
@@ -29,3 +30,23 @@ def login_view(request):
     else:
         form = LoginForm(request)
     return render(request, 'login.html', {'form': form})
+
+class SpaceForm(forms.ModelForm):
+    class Meta:
+        model = Space
+        fields = ['name', 'dimensions', 'configuration']
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['name', 'price', 'description']
+
+class DesignForm(forms.ModelForm):
+    class Meta:
+        model = Design
+        fields = ['name', 'description', 'image']
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['product', 'quantity', 'shipping_address']

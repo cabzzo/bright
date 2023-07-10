@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import UserProfile, Sensor
 
-# Register your models here.
+admin.site.register(UserProfile)
+admin.site.register(Sensor)
