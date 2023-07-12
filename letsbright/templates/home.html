@@ -3,56 +3,19 @@
 {% load static %}
 
 {% block content %}
-
 <!-- Hero Section -->
 <section class="hero-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h1>Welcome to Bright</h1>
-                <p>Experience Smart Living</p>
-                <a href="#" class="btn btn-primary">Start Your Journey</a>
-            </div>
-            <div class="col-md-6">
-                <!-- You can add an image or an interactive visual here -->
-                <img src="{% static 'images/hero-image.png' %}" alt="Hero Image" class="img-fluid">
-            </div>
-        </div>
+    <div class="hero-image">
+        <img src="{% static 'images/hero-image.webp' %}" alt="Hero Image" class="img-fluid">
     </div>
-</section>
-
-<!-- Explore Smart Living Spaces Section -->
-<section class="explore-section py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Explore Smart Living Spaces</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'images/living-space1.png' %}" class="card-img-top" alt="Living Space 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Living Space 1</h5>
-                        <p class="card-text">Description of the living space</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'images/living-space2.jpg' %}" class="card-img-top" alt="Living Space 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Living Space 2</h5>
-                        <p class="card-text">Description of the living space</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'images/living-space3.jpg' %}" class="card-img-top" alt="Living Space 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Living Space 3</h5>
-                        <p class="card-text">Description of the living space</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
+    <div class="hero-content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="hero-text">
+                        <h1>Elevating Lifestyles, Sustaining Nature</h1>
+                        <p>Bright converges nature and technology to elevate the human experience.</p>
+                        <a href="{% url 'about' %}" class="btn btn-primary">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -60,65 +23,79 @@
     </div>
 </section>
 
-<!-- Sustainability Stories Section -->
-<section class="sustainability-section py-5 bg-light">
+<!-- Surface System Section -->
+<section class="explore-section" style="background-image: url({% static 'images/section-background-1.jpg' %});">
     <div class="container">
-        <h2 class="text-center mb-4">Sustainability Stories</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <img src="{% static 'images/sustainability-story1.jpg' %}" class="card-img-top" alt="Sustainability Story 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Sustainability Story 1</h5>
-                        <p class="card-text">Description of the sustainability story</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <img src="{% static 'images/sustainability-story2.jpg' %}" class="card-img-top" alt="Sustainability Story 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Sustainability Story 2</h5>
-                        <p class="card-text">Description of the sustainability story</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
+        <div class="explore-text">
+            <h2>Introducing the Bright Surface System</h2>
+            <p>Our flagship offering, the Bright Surface System, forms the core of our architectural product catalog. This comprehensive and modular system, including our innovative air-purifying tiles and associated components, offers a flexible and adaptable solution for various spaces. Each component is embedded with sensors and IoT capabilities, enabling it to understand, adapt, and respond to its environment.</p>
+            <a href="#" class="btn btn-primary">Learn More</a>
         </div>
     </div>
 </section>
 
-<!-- Create & Design Section -->
-<section class="design-section py-5">
+<!-- Technology + Sustainability Section -->
+<section class="explore-section" style="background-image: url({% static 'images/section-background-2.jpg' %});">
     <div class="container">
-        <h2 class="text-center mb-4">Create & Design Your Space</h2>
-        <p class="text-center">Get started with an intuitive questionnaire, visualize your space, and experience your design.</p>
-        <div class="text-center">
-            <a href="#" class="btn btn-primary">Create Your Project</a>
+        <div class="explore-text">
+            <h2>Innovation Meets Sustainability</h2>
+            <p>At Bright, we believe in the power of technology to drive sustainable solutions. Our products are designed with both innovation and environmental responsibility in mind. From our air-purifying tiles to our IoT-enabled components, we're leveraging cutting-edge technology to create products that not only enhance our living spaces but also contribute to a healthier planet.</p>
+            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Case Studies or Stories -->
+<section class="explore-section" style="background-image: url({% static 'images/section-background-3.jpg' %});">
+    <div class="container">
+        <div class="explore-text">
+            <h2>Transforming Spaces, Enhancing Lives</h2>
+            <p>Our products have been instrumental in transforming various spaces and enhancing the lives of our customers. From homes to offices, our solutions have improved air quality, enhanced comfort, and brought about a sense of well-being. Read our customer stories to learn more about how Bright is making a difference.</p>
+            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="explore-section" style="background-image: url({% static 'images/section-background-4.jpg' %});">
+    <div class="container">
+        <div class="explore-text">
+            <h2>Let's Shape a Sustainable Future Together</h2>
+            <p>Interested in learning more about our products or have a project in mind? We'd love to hear from you. Contact us today and let's work together to shape a sustainable future.</p>
+            <a href="#" class="btn btn-primary">Contact Us</a>
         </div>
     </div>
 </section>
 
 <!-- Footer Section -->
-<footer class="footer-section bg-light py-4">
+<footer class="footer-section py-4" style="background-color: #000000; color: #ffffff;">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <ul class="footer-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact Us</a></li>
+            <div class="col-md-4">
+                <h4>About Bright</h4>
+                <p>Elevating Lifestyles, Sustaining Nature. Bright converges nature and technology to elevate the human experience.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Quick Links</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="{% url 'home' %}" style="color: #ffffff;">Home</a></li>
+                    <li><a href="{% url 'about' %}" style="color: #ffffff;">About</a></li>
+                    <!-- Add more links as needed -->
                 </ul>
             </div>
-            <div class="col-md-6">
-                <div class="social-media-icons">
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-twitter"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
+            <div class="col-md-4">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to our newsletter for the latest updates.</p>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h4>Follow Us</h4>
+                <a href="#" style="color: #ffffff;"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" style="color: #ffffff;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: #ffffff;"><i class="fab fa-instagram"></i></a>
+                <!-- Add more social links as needed -->
             </div>
         </div>
     </div>

@@ -7,9 +7,15 @@ body {
 
 /* Navbar */
 .navbar {
+    position: fixed;
+    z-index: 100;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.9) !important; /* semi-transparent white */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* shadow effect */
     transition: 0.4s;
-    background-color: rgba(255, 255, 255, 0.366);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: none;
 }
 
@@ -114,4 +120,99 @@ a:hover {
 /* Blur effect for content */
 #content-wrapper.blur {
     filter: blur(5px);
+}
+
+/* Dropdown menu */
+.navbar .dropdown-menu {
+    transition: 0.4s;
+    background-color: rgba(255, 255, 255, 0.9); /* semi-transparent */
+    border-radius: 20px; /* rounded corners */
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+.hero-text {
+    background-color: rgba(255, 255, 255, 0.75); /* semi-transparent */
+    padding: 20px;
+    text-align: center;
+    color: #000000;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero-text .btn-primary {
+    margin-top: 20px;
+}
+
+/* Add this to your CSS file */
+
+.explore-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    margin: 4em 0; /* Increase the vertical spacing */
+    padding: 4em 0; /* Increase the vertical padding */
+}
+
+.explore-section .container {
+    position: relative; /* This will allow us to position the .explore-text divs relative to the .container div */
+}
+
+.explore-section .explore-text {
+    background-color: rgba(255, 255, 255, 0.75); /* semi-transparent */
+    padding: 20px;
+    text-align: center;
+    color: #000000;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Make the container take up half the width of the .container div */
+    margin: 0 auto; /* Center the container */
+    max-width: 800px; /* Maximum width to prevent it from stretching too much on larger screens */
+    min-width: 300px; /* Minimum width to keep it from getting too skinny */
+}
+
+.explore-section:nth-child(even) .explore-text {
+    margin-left: auto; /* Align the container to the right */
+    margin-right: 0;
+}
+
+.explore-section:nth-child(odd) .explore-text {
+    margin-left: 0; /* Align the container to the left */
+    margin-right: auto;
 }
