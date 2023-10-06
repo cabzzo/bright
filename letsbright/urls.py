@@ -1,5 +1,9 @@
 from django.urls import path
-from .views import home, about, create_space, add_product, place_order, save_design, space_detail
+from .views import (
+    create_profile, home, about, create_space, add_product, place_order, 
+    save_design, space_detail, login_view, register, 
+    profile, settings_view, logout_view, dashboard, explore
+)
 
 urlpatterns = [
     path('', home, name='home'),
@@ -9,4 +13,12 @@ urlpatterns = [
     path('space_detail/<int:space_id>/', space_detail, name='space_detail'),
     path('save_design/', save_design, name='save_design'),
     path('place_order/', place_order, name='place_order'),
+    path('login/', login_view, name='login'),
+    path('register/', register, name='register'),
+    path('profile/', profile, name='profile'),
+    path('settings/', settings_view, name='settings'),
+    path('logout/', logout_view, name='logout'),
+    path('dashboard/', dashboard, name='dashboard'),
+    path('explore/', explore, name='explore'),
+    path('create_profile/', create_profile, name='create_profile'),
 ]

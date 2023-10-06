@@ -1,19 +1,35 @@
- 
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import authenticate, login
-from .forms import RegistrationForm, LoginForm
-from django.contrib.auth.forms import AuthenticationForm
-from .forms import SpaceForm, ProductForm, DesignForm, OrderForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+# Existing imports
+from .forms import RegistrationForm, LoginForm, SpaceForm, ProductForm, DesignForm, OrderForm
 from .models import Space
 from django.http import JsonResponse
 
-
+# Home
 def home(request):
     return render(request, 'home.html')
-def about(request):
-    return render(request, 'about.html')
-def base(request):
-    return render(request, 'base.html')
+
+# Dashboard for logged-in users
+@login_required
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+# Profile for logged-in users
+@login_required
+def profile(request):
+    return render(request, 'profile.html')
+
+# Settings for logged-in users
+@login_required
+def settings(request):
+    return render(request, 'settings.html')
+
+# Explore for all users
+def explore(request):
+    return render(request, 'explore.html')
+
+# Login view
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request, data=request.POST)
@@ -23,19 +39,10 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('profile')
+                return redirect('dashboard')
     else:
         form = LoginForm(request)
     return render(request, 'registration/login.html', {'form': form})
-def register(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-    else:
-        form = RegistrationForm()
-    return render(request, 'registration/register.html', {'form': form})
 
 def create_space(request):
     if request.method == 'POST':
@@ -93,3 +100,19 @@ def cart_json(request):
         # ... other cart data
     }
     return JsonResponse(cart_data)
+def about(request):
+    return render(request, 'about.html')
+def register(request):
+    # Your registration logic here
+    return render(request, 'register.html')
+@login_required
+def settings_view(request):
+    # Your settings logic here
+    return render(request, 'settings.html')
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+def create_profile(request):
+    # Your logic for creating a profile
+    return render(request, 'create_profile.html')

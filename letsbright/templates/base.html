@@ -39,15 +39,16 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="universalUserMenu" style="position: absolute;">
                             {% if user.is_authenticated %}
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Log Out</a></li>
-                            {% else %}
-                                <li><a class="dropdown-item" href="#">Log In</a></li>
-                                <li><a class="dropdown-item" href="#">Create Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Explore</a></li>
-                            {% endif %}
+                            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+                            <li><a href="{% url 'settings' %}">Settings</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                          {% else %}
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'create_profile' %}">Create Profile</a></li>
+                            <li><a href="{% url 'explore' %}">Explore</a></li>
+                          {% endif %}
+                          
                         </ul>
                     </li>
                 </ul>
