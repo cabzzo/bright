@@ -106,3 +106,7 @@ import logging.config
 
 LOGGING_CONFIG = None
 logging.basicConfig(level=logging.DEBUG)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+DEFAULT_CHARSET = 'utf-8'

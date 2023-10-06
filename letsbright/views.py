@@ -5,7 +5,7 @@ from .forms import RegistrationForm, LoginForm
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import SpaceForm, ProductForm, DesignForm, OrderForm
 from .models import Space
-
+from django.http import JsonResponse
 
 
 def home(request):
@@ -86,3 +86,10 @@ def place_order(request):
     else:
         form = OrderForm()
     return render(request, 'place_order.html', {'form': form})
+def cart_json(request):
+    cart_data = {
+        "item": "Example Item",
+        "quantity": 2,
+        # ... other cart data
+    }
+    return JsonResponse(cart_data)

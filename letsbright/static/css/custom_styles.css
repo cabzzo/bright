@@ -13,7 +13,7 @@ body {
     left: 10px;
     right: 10px;
     border-radius: 40px;
-    background-color: rgba(255, 255, 255, 0.9) !important; /* semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.8) !important; /* semi-transparent white */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* shadow effect */
     transition: 0.4s;
     border: none;
@@ -35,100 +35,29 @@ body {
     text-decoration: none;
 }
 
-/* Sidebar */
-.sidebar {
-    background-color: #ffffff;
-    height: 100vh;
-    padding: 20px 0;
-    border-right: 1px solid #e0e0e0;
-}
-
-.sidebar .btn {
-    text-align: left;
-    color: #5f6368;
-    width: 100%;
-}
-
-.sidebar .btn:hover {
-    background-color: #f8f9fa;
-}
-
-/* Main Content */
-.main-content {
-    padding: 20px;
-    background-color: #f1f1f1;
-}
-
-.mail-list {
-    background-color: #ffffff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.mail-list .mail-item {
-    padding: 12px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.mail-list .mail-item:last-child {
-    border-bottom: none;
-}
-
-.mail-list .mail-item:hover {
-    background-color: #f8f9fa;
-}
-
-.mail-subject, .mail-preview {
-    margin: 0;
-    color: #202124;
-}
-
-.mail-sender {
-    margin: 0;
-    color: #5f6368;
-}
-
-/* Buttons */
-.btn-primary {
-    background-color: #ffd249;
-    border-color: #ffd249;
-    border-radius: 30px;
-}
-
-.btn-primary:hover {
-    background-color: #fcb935;
-    border-color: #fcb935;
-}
-
-.btn-danger {
-    background-color: #d93025;
-    border-color: #d93025;
-    border-radius: 30px;
-}
-
-/* Hyperlinks */
-a {
-    color: #ffd249;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: #fcb935;
-}
-
-/* Blur effect for content */
-#content-wrapper.blur {
-    filter: blur(5px);
-}
-
 /* Dropdown menu */
 .navbar .dropdown-menu {
     transition: 0.4s;
-    background-color: rgba(255, 255, 255, 0.9); /* semi-transparent */
+    background-color: rgba(255, 255, 255, 0.8); /* semi-transparent */
     border-radius: 20px; /* rounded corners */
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for dropdown items */
+.navbar .dropdown-menu .dropdown-item:hover {
+    background-color:  rgba(254, 231, 139, 0.8); /* semi-transparent */
+}
+
+/* Rounded corners for the first and last dropdown items */
+.navbar .dropdown-menu .dropdown-item:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.navbar .dropdown-menu .dropdown-item:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 /* Hero Section */
@@ -179,8 +108,6 @@ a:hover {
     margin-top: 20px;
 }
 
-/* Add this to your CSS file */
-
 .explore-section {
     position: relative;
     background-size: cover;
@@ -215,4 +142,420 @@ a:hover {
 .explore-section:nth-child(odd) .explore-text {
     margin-left: 0; /* Align the container to the left */
     margin-right: auto;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #ffd249;
+    border-color: #ffd249;
+    border-radius: 30px;
+}
+
+.btn-primary:hover {
+    background-color: #fcb935;
+    border-color: #fcb935;
+}
+
+.btn-danger {
+    background-color: #d93025;
+    border-color: #d93025;
+    border-radius: 30px;
+}
+
+/* Search Icon */
+.search-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+/* Search Box */
+.search-box {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 5px 15px;
+    position: absolute;
+    right: 60px;
+    top: 15px;
+}
+
+/* Hover effect for search box */
+.search-icon:hover + .search-box {
+    display: block;
+}
+
+.icon-align {
+    display: flex;
+    align-items: center;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-right: 25px;  /* Increased from 15px to 25px */
+}
+
+.search-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-right: 25px;  /* Increased from 15px to 25px */
+}
+
+.d-flex.order-lg-last {
+    margin-left: auto;
+}
+
+.d-flex.order-lg-last i,
+.d-flex.order-lg-last a {
+    align-self: center;
+    margin-right: 10px;
+}
+
+/* Additional CSS to align icons properly */
+.navbar .navbar-nav {
+    align-items: center;
+}
+
+.search-icon,
+.bi-person-fill {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Fix for dropdown menu position */
+.nav-item.dropdown {
+    position: static;
+}
+
+.dropdown-menu {
+    left: auto !important;
+    right: 0;
+}
+
+.search-icon {
+    vertical-align: middle;
+  }
+
+  /* Additional CSS for icon alignment and dropdown behavior */
+.nav-item {
+    margin-right: 20px;
+    align-self: center;
+}
+
+.search-icon, .bi-person-fill {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    margin-right: 25px;  /* Increased from 15px to 25px */
+}
+
+/* Ensure dropdown menu does not expand navbar */
+.dropdown-menu {
+    position: absolute;
+    left: auto !important;
+    right: 0;
+}
+
+/* Fix for Search Icon Vertical Alignment */
+.search-icon {
+    vertical-align: middle;
+}
+
+/* Fix for General Icon Alignment */
+.navbar .navbar-nav {
+    align-items: center;
+}
+
+/* Specific styling for Dropdown Position */
+.nav-item.dropdown {
+    position: static;
+}
+/* ...your existing CSS... */
+
+/* Icon styling */
+.icon-align {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-icon,
+  .bi-person-fill {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    margin-right: 20px; /* Add some space between the icons */
+  }
+  
+  /* Ensure dropdown menu does not expand navbar */
+  .dropdown-menu {
+    position: absolute;
+    left: auto !important;
+    right: 0;
+  }
+  
+  /* Style for search box */
+  .search-box {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 5px 15px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+  }
+  
+  /* Hover effect for search box */
+  .search-icon:hover + .search-box {
+    display: block;
+  }
+  
+/* Align to right when hamburger menu is shown */
+@media (max-width: 991px) {
+    .navbar-collapse {
+      text-align: right;
+    }
+  }  
+
+/* Custom styles for navbar */
+.navbar-right-align {
+    justify-content: flex-end !important;
+  }
+  
+  .center-nav-items {
+    justify-content: center !important;
+}
+
+/* To center menu items */
+.navbar-collapse .navbar-nav {
+    justify-content: center;
+}
+
+/* To adjust the space between the elements */
+.custom-spacing {
+    margin-right: 10px !important;
+}
+
+/* Reduce space between search icon and user icon */
+.nav-item.me-3 {
+    margin-right: 0.5rem !important;
+}
+
+/* Custom styles to center menu items */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        justify-content: center;
+    }
+    .navbar-collapse .main-menu {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Reduce space between search icon and user icon */
+.nav-item.me-3 {
+    margin-right: 0.3rem !important; /* Adjust this value as needed */
+}
+
+/* Reduce space between user icon and the dropdown arrow */
+.nav-link.dropdown-toggle {
+    padding-right: 0.001rem; /* Adjust this value as needed */
+}
+
+/* Reduce space between user icon and hamburger icon */
+.navbar-toggler {
+    margin-left: 0.01rem !important; /* Adjust this value as needed */
+}
+
+.input-group {
+    max-width: 200px;
+    width: 100%;
+}
+
+.input-group .form-control {
+    border: none;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+}
+
+.input-group-text {
+    background-color: transparent;
+    border: none;
+}
+
+.input-group-text i {
+    font-size: 1.2rem;
+}
+
+/* Search Icon */
+.search-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: white; /* make the icon white */
+}
+
+/* Search Box */
+.search-box {
+    display: none;
+    position: absolute; /* position it within the navbar */
+    top: 0;
+    left: 0;
+    z-index: 100; /* make sure it's above other elements */
+}
+
+.input-group .form-control {
+    border: none;
+    border-radius: 50px;  /* Complete rounded ends */
+    background-color: #f1f1f1;
+}
+
+/* Hover effect for search box */
+.search-container:hover .search-box {
+    display: block;  /* make it visible on hover */
+}
+
+/* Search Icon */
+.search-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: black; /* make the icon black */
+    position: relative; /* relative to the parent (search-container) */
+}
+
+/* Search Box */
+.search-box {
+    display: none;
+    position: absolute; /* position it within the search-container */
+    top: 50%; /* centered vertically */
+    left: 50%; /* centered horizontally */
+    transform: translate(-50%, -50%); /* fine-tuning for perfect center */
+    z-index: 100; /* make sure it's above other elements */
+}
+
+.input-group .form-control {
+    border: none;
+    border-radius: 50px;  /* Complete rounded ends */
+    background-color: #f1f1f1;
+}
+
+/* Hover effect for search box */
+.search-container:hover .search-box {
+    display: flex;  /* make it visible on hover */
+}
+/* Search Icon */
+.search-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: black;  /* Changed back to black */
+}
+
+/* Search Box */
+.search-box {
+    display: none;
+    position: fixed;  /* Fixed position */
+    top: 50%;  /* Center horizontally */
+    left: 50%;  /* Center vertically */
+    transform: translate(-50%, -50%);  /* Centering adjustment */
+    z-index: 100;  /* below the search icon */
+}
+
+/* Search Input */
+.input-group .form-control {
+    border: none;
+    border-radius: 50px;  /* Complete rounded ends */
+    background-color: #f1f1f1;
+}
+
+/* Adjusting the input field */
+.form-control.rounded-end {
+    border-top-right-radius: 50px;  /* Complete rounded ends */
+    border-bottom-right-radius: 50px;  /* Complete rounded ends */
+}
+
+/* Hover effect for search box */
+.search-container:hover .search-box {
+    display: block;  /* make it visible on hover */
+}
+/* Search Container */
+.search-container {
+    position: relative;
+}
+
+/* Search Icon */
+.search-icon i.bi-search {
+    color: grey; /* Default color */
+}
+
+.search-icon:hover i.bi-search {
+    color: black; /* Color on hover */
+}
+
+/* Search Box */
+.search-box {
+    top: 100%; /* Position below the search icon */
+    left: 50%; /* Center the search box */
+    transform: translateX(-50%); /* Adjust the positioning */
+    z-index: 100; /* Appear above other elements */
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 50px; /* Fully rounded ends */
+}
+
+.search-box input.form-control {
+    border-radius: 50px; /* Fully rounded ends */
+}
+
+/* Show search box on hover */
+.search-container:hover .search-box {
+    display: block;
+}
+
+/* Make search box visible only on hover */
+.search-container:hover .search-box {
+    display: block;
+}
+
+/* For rounded ends */
+.rounded-pill {
+    border-radius: 50rem !important;
+}
+
+/* For removing grey border */
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+/* Positioning and color of search icon */
+.search-icon i {
+    color: gray;  /* set it to any color you want */
+    position: relative;
+    z-index: 10000;
+}
+
+/* CSS */
+/* Show search box only when hovering over its container */
+.search-container:hover .search-box {
+    display: block;
+}
+
+/* Round the ends of the search box */
+.rounded-pill {
+    border-radius: 50rem !important;
+}
+
+/* Remove the grey border when the search box is focused */
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+/* Color and positioning of the search icon */
+.search-icon {
+    color: gray;
+    position: relative;
+    z-index: 1;
 }

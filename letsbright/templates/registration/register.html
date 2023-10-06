@@ -1,8 +1,50 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'letsbright/static/css/custom_styles.css' %}">
-<h1>Register</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'letsbright/static/css/custom_styles.css' %}">
+    <title>Register</title>
+    <style>
+        .register-container {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .header {
+            background: url('/path/to/earthy_image.jpg') no-repeat center;
+            background-size: cover;
+            color: #fff;
+            padding: 50px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            padding: 10px;
+        }
+        .header p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'bright_logo-01.png' %}" alt="Bright Logo">
+        <h1>Join the Bright Community</h1>
+        <p>Embrace sustainability and connect with like-minded individuals.</p>
+    </div>
+    <div class="register-container">
+        <h1>Register</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <label for="sustainability-updates">
+                <input type="checkbox" id="sustainability-updates" name="sustainability-updates">
+                Subscribe to sustainability-related updates
+            </label>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
