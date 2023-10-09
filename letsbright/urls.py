@@ -2,7 +2,7 @@ from django.urls import path, include
 from .views import (
     create_user_profile, home, about, create_space, add_product, place_order, 
     save_design, space_detail, login_view, 
-    profile, settings_view, logout_view, dashboard, explore
+    profile, settings_view, logout_view, dashboard, explore, onboarding,
 )
 
 urlpatterns = [
@@ -20,4 +20,5 @@ urlpatterns = [
     path('dashboard/', dashboard, name='dashboard'),
     path('explore/', explore, name='explore'),
     path('create_user_profile/', create_user_profile, name='create_user_profile'),
+    path('onboarding/', onboarding, name='onboarding'),
 ]

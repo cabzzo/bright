@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Video Section -->
+    <div class="video-section">
+        <video src="{% static 'videos/welcome_video.mp4' %}" controls></video>
+    </div>
+
+    <!-- Welcome Text -->
+    <div class="welcome-section">
+        <h1>Welcome to Bright</h1>
+        <p>Embark on a journey to make your living spaces more sustainable, intelligent, and user-centric.</p>
+    </div>
+
+    <!-- Preferences Quiz -->
+    <div class="quiz-section">
+        <h2>Let's Customize Your Journey</h2>
+       <!-- <form action="{% url 'quiz_result' %}" method="post"> -->
+
+            {% csrf_token %}
+
+            <!-- Goals & Aspirations -->
+            <label for="goals">What are you looking to improve in your life?</label>
+            <select id="goals" name="goals">
+                <option value="health">Health</option>
+                <option value="productivity">Productivity</option>
+                <option value="social">Social Interactions</option>
+            </select>
+
+            <!-- Sustainability Preferences -->
+            <label for="sustainability">Choose the sustainability issues that matter most to you.</label>
+            <select id="sustainability" name="sustainability">
+                <option value="energy">Energy Efficiency</option>
+                <option value="waste">Waste Reduction</option>
+                <option value="air">Clean Air</option>
+            </select>
+
+            <!-- Tech Comfort -->
+            <label for="tech_comfort">Rate your comfort level with smart home technologies.</label>
+            <select id="tech_comfort" name="tech_comfort">
+                <option value="novice">Novice</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="tech_savvy">Tech-Savvy</option>
+            </select>
+
+            <input type="submit" value="Start Journey">
+        </form>
+    </div>
+{% endblock %}

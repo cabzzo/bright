@@ -118,14 +118,20 @@ def logout_view(request):
     logout(request)
     return redirect('home')
 
-# Create Profile
 def create_user_profile(request):
     if request.method == 'POST':
         user_form = RegistrationForm(request.POST)
         if user_form.is_valid():
             user = user_form.save()
-            return redirect('profile')
+            print("Form is valid. Redirecting to onboarding.")  # Debug print
+            return redirect('onboarding')  # Redirect to onboarding
+        else:
+            print("Form is invalid.")  # Debug print
     else:
         user_form = RegistrationForm()
     
     return render(request, 'create_user_profile.html', {'user_form': user_form})
+
+
+def onboarding(request):
+    return render(request, 'onboarding.html')
