@@ -3,11 +3,6 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=15, blank=True)
-    avatar = models.ImageField(upload_to='avatars/', blank=True)  # Corrected here
-
 class Sensor(models.Model):
     SENSOR_TYPES = (
         ('temperature', 'Temperature'),
@@ -52,3 +47,10 @@ class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     shipping_address = models.TextField()
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=15, blank=True)
+    avatar = models.ImageField(upload_to='avatars/', blank=True)
+    date_of_birth = models.DateField(null=True, blank=True)
+    profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)

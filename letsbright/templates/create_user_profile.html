@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Hero Image -->
+    <div class="hero-section">
+        <div class="hero-image">
+            <img src="{% static 'images/earth-from-space.jpg' %}" alt="Earth from Space">
+        </div>
+    </div>
+
+    <!-- Create Profile Container -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-container">
+                    <h1 style="font-size: 24px;">Create User Profile</h1>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="{{ user_form.username.name }}" placeholder="Username" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="{{ user_form.email.name }}" placeholder="Email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="{{ user_form.password.name }}" placeholder="Password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="{{ profile_form.occupation.name }}" placeholder="Occupation" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="{{ profile_form.phone_number.name }}" placeholder="Phone Number" class="form-control" required>
+                        </div>
+                        <!-- Add more fields as you need -->
+                        <button type="submit" class="btn btn-primary">Create Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,561 +1,131 @@
-/* General Page Styling */
+/* General Settings */
 body {
-    font-family: 'Arial', sans-serif;
-    font-size: 14px;
-    background-color: #f1f1f1;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  background-color: #f1f1f1;
 }
 
-/* Navbar */
+/* Navbar Settings */
 .navbar {
-    position: fixed;
-    z-index: 100;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    border-radius: 40px;
-    background-color: rgba(255, 255, 255, 0.8) !important; /* semi-transparent white */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* shadow effect */
-    transition: 0.4s;
-    border: none;
+  position: fixed;
+  z-index: 100;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
+  border: none;
 }
+.navbar .navbar-brand { color: #ea4335; }
+.navbar .nav-link { color: #5f6368; }
+.navbar .nav-link:hover { color: #b38f00; }
 
-.navbar .navbar-brand {
-    color: #ea4335;
-}
-
-.navbar .nav-link {
-    color: #5f6368;
-}
-
-.navbar .nav-link:hover {
-    color: #b38f00;
-}
-
-.no-underline:hover {
-    text-decoration: none;
-}
-
-/* Dropdown menu */
+/* Dropdown Settings */
 .navbar .dropdown-menu {
-    transition: 0.4s;
-    background-color: rgba(255, 255, 255, 0.8); /* semi-transparent */
-    border-radius: 20px; /* rounded corners */
-    border: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* Hover effect for dropdown items */
-.navbar .dropdown-menu .dropdown-item:hover {
-    background-color:  rgba(254, 231, 139, 0.8); /* semi-transparent */
+.navbar .dropdown-menu a {
+  color: #333;
+  text-decoration: none;
 }
-
-/* Rounded corners for the first and last dropdown items */
-.navbar .dropdown-menu .dropdown-item:first-child {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+.navbar .dropdown-menu a:hover {
+  color: #007bff;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  padding: 5px 15px;
 }
-
-.navbar .dropdown-menu .dropdown-item:last-child {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
+.navbar .dropdown-menu li { padding: 5px 0; }
 
 /* Hero Section */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
+.hero-section { position: relative; height: 100vh; overflow: hidden; }
+.hero-image img { width: 100%; height: auto; object-fit: cover; }
+.hero-content { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.hero-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-}
-
 .hero-text {
-    background-color: rgba(255, 255, 255, 0.75); /* semi-transparent */
-    padding: 20px;
-    text-align: center;
-    color: #000000;
-    border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 20px;
+  text-align: center;
+  color: #000000;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.hero-text h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.hero-text p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.hero-text .btn-primary {
-    margin-top: 20px;
-}
-
+/* Explore Section */
 .explore-section {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-    margin: 4em 0; /* Increase the vertical spacing */
-    padding: 4em 0; /* Increase the vertical padding */
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  margin: 4em 0;
+  padding: 4em 0;
 }
-
-.explore-section .container {
-    position: relative; /* This will allow us to position the .explore-text divs relative to the .container div */
-}
-
 .explore-section .explore-text {
-    background-color: rgba(255, 255, 255, 0.75); /* semi-transparent */
-    padding: 20px;
-    text-align: center;
-    color: #000000;
-    border-radius: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 50%; /* Make the container take up half the width of the .container div */
-    margin: 0 auto; /* Center the container */
-    max-width: 800px; /* Maximum width to prevent it from stretching too much on larger screens */
-    min-width: 300px; /* Minimum width to keep it from getting too skinny */
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 20px;
+  text-align: center;
+  color: #000000;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  margin: 0 auto;
+  max-width: 800px;
+  min-width: 300px;
 }
 
-.explore-section:nth-child(even) .explore-text {
-    margin-left: auto; /* Align the container to the right */
-    margin-right: 0;
-}
-
-.explore-section:nth-child(odd) .explore-text {
-    margin-left: 0; /* Align the container to the left */
-    margin-right: auto;
-}
-
-/* Buttons */
+/* Button Settings */
 .btn-primary {
-    background-color: #ffd249;
-    border-color: #ffd249;
-    border-radius: 30px;
+  background-color: #ffd249;
+  border-color: #ffd249;
+  border-radius: 30px;
 }
-
 .btn-primary:hover {
-    background-color: #fcb935;
-    border-color: #fcb935;
+  background-color: #fcb935;
+  border-color: #fcb935;
 }
 
-.btn-danger {
-    background-color: #d93025;
-    border-color: #d93025;
-    border-radius: 30px;
+/* Login Box */
+.login-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
-/* Search Icon */
-.search-icon {
-    cursor: pointer;
-    font-size: 1.2rem;
-    margin-right: 15px;
+.form-control {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 30px;
+  border: none;
 }
-
-/* Search Box */
-.search-box {
-    display: none;
-    background-color: #ffffff;
-    border-radius: 30px;
-    padding: 5px 15px;
-    position: absolute;
-    right: 60px;
-    top: 15px;
+button[type="submit"] {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 30px;
+  border-radius: 30px;
 }
-
-/* Hover effect for search box */
-.search-icon:hover + .search-box {
-    display: block;
+.password-explanation {
+  text-align: left;
+  margin-bottom: 20px;
 }
-
-.icon-align {
-    display: flex;
-    align-items: center;
-}
-
-.container-fluid {
-    display: flex;
-    justify-content: space-between;
-}
-
-.search-icon {
-    cursor: pointer;
-    font-size: 1.2rem;
-    margin-right: 25px;  /* Increased from 15px to 25px */
-}
-
-.search-icon {
-    cursor: pointer;
-    font-size: 1.2rem;
-    margin-right: 25px;  /* Increased from 15px to 25px */
-}
-
-.d-flex.order-lg-last {
-    margin-left: auto;
-}
-
-.d-flex.order-lg-last i,
-.d-flex.order-lg-last a {
-    align-self: center;
-    margin-right: 10px;
-}
-
-/* Additional CSS to align icons properly */
-.navbar .navbar-nav {
-    align-items: center;
-}
-
-.search-icon,
-.bi-person-fill {
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
-/* Fix for dropdown menu position */
-.nav-item.dropdown {
-    position: static;
-}
-
-.dropdown-menu {
-    left: auto !important;
-    right: 0;
-}
-
-.search-icon {
-    vertical-align: middle;
-  }
-
-  /* Additional CSS for icon alignment and dropdown behavior */
-.nav-item {
-    margin-right: 20px;
-    align-self: center;
-}
-
-.search-icon, .bi-person-fill {
-    font-size: 1.2rem;
-    vertical-align: middle;
-    margin-right: 25px;  /* Increased from 15px to 25px */
-}
-
-/* Ensure dropdown menu does not expand navbar */
-.dropdown-menu {
-    position: absolute;
-    left: auto !important;
-    right: 0;
-}
-
-/* Fix for Search Icon Vertical Alignment */
-.search-icon {
-    vertical-align: middle;
-}
-
-/* Fix for General Icon Alignment */
-.navbar .navbar-nav {
-    align-items: center;
-}
-
-/* Specific styling for Dropdown Position */
-.nav-item.dropdown {
-    position: static;
-}
-/* ...your existing CSS... */
-
-/* Icon styling */
-.icon-align {
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-icon,
-  .bi-person-fill {
-    font-size: 1.2rem;
-    vertical-align: middle;
-    margin-right: 20px; /* Add some space between the icons */
-  }
-  
-  /* Ensure dropdown menu does not expand navbar */
-  .dropdown-menu {
-    position: absolute;
-    left: auto !important;
-    right: 0;
-  }
-  
-  /* Style for search box */
-  .search-box {
-    display: none;
-    background-color: #ffffff;
-    border-radius: 30px;
-    padding: 5px 15px;
-    position: absolute;
-    right: 0;
-    top: 15px;
-  }
-  
-  /* Hover effect for search box */
-  .search-icon:hover + .search-box {
-    display: block;
-  }
-  
-/* Align to right when hamburger menu is shown */
-@media (max-width: 991px) {
-    .navbar-collapse {
-      text-align: right;
-    }
-  }  
-
-/* Custom styles for navbar */
-.navbar-right-align {
-    justify-content: flex-end !important;
-  }
-  
-  .center-nav-items {
-    justify-content: center !important;
-}
-
-/* To center menu items */
-.navbar-collapse .navbar-nav {
-    justify-content: center;
-}
-
-/* To adjust the space between the elements */
-.custom-spacing {
-    margin-right: 10px !important;
-}
-
-/* Reduce space between search icon and user icon */
-.nav-item.me-3 {
-    margin-right: 0.5rem !important;
-}
-
-/* Custom styles to center menu items */
-@media (min-width: 992px) {
-    .navbar-collapse {
-        justify-content: center;
-    }
-    .navbar-collapse .main-menu {
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-/* Reduce space between search icon and user icon */
-.nav-item.me-3 {
-    margin-right: 0.3rem !important; /* Adjust this value as needed */
-}
-
-/* Reduce space between user icon and the dropdown arrow */
-.nav-link.dropdown-toggle {
-    padding-right: 0.001rem; /* Adjust this value as needed */
-}
-
-/* Reduce space between user icon and hamburger icon */
-.navbar-toggler {
-    margin-left: 0.01rem !important; /* Adjust this value as needed */
-}
-
-.input-group {
-    max-width: 200px;
-    width: 100%;
-}
-
-.input-group .form-control {
-    border: none;
-    border-radius: 50px;
-    background-color: #f1f1f1;
-}
-
-.input-group-text {
-    background-color: transparent;
-    border: none;
-}
-
-.input-group-text i {
-    font-size: 1.2rem;
-}
-
-/* Search Icon */
-.search-icon {
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: white; /* make the icon white */
-}
-
-/* Search Box */
-.search-box {
-    display: none;
-    position: absolute; /* position it within the navbar */
-    top: 0;
-    left: 0;
-    z-index: 100; /* make sure it's above other elements */
-}
-
-.input-group .form-control {
-    border: none;
-    border-radius: 50px;  /* Complete rounded ends */
-    background-color: #f1f1f1;
-}
-
-/* Hover effect for search box */
-.search-container:hover .search-box {
-    display: block;  /* make it visible on hover */
-}
-
-/* Search Icon */
-.search-icon {
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: black; /* make the icon black */
-    position: relative; /* relative to the parent (search-container) */
-}
-
-/* Search Box */
-.search-box {
-    display: none;
-    position: absolute; /* position it within the search-container */
-    top: 50%; /* centered vertically */
-    left: 50%; /* centered horizontally */
-    transform: translate(-50%, -50%); /* fine-tuning for perfect center */
-    z-index: 100; /* make sure it's above other elements */
-}
-
-.input-group .form-control {
-    border: none;
-    border-radius: 50px;  /* Complete rounded ends */
-    background-color: #f1f1f1;
-}
-
-/* Hover effect for search box */
-.search-container:hover .search-box {
-    display: flex;  /* make it visible on hover */
-}
-/* Search Icon */
-.search-icon {
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: black;  /* Changed back to black */
-}
-
-/* Search Box */
-.search-box {
-    display: none;
-    position: fixed;  /* Fixed position */
-    top: 50%;  /* Center horizontally */
-    left: 50%;  /* Center vertically */
-    transform: translate(-50%, -50%);  /* Centering adjustment */
-    z-index: 100;  /* below the search icon */
-}
-
-/* Search Input */
-.input-group .form-control {
-    border: none;
-    border-radius: 50px;  /* Complete rounded ends */
-    background-color: #f1f1f1;
-}
-
-/* Adjusting the input field */
-.form-control.rounded-end {
-    border-top-right-radius: 50px;  /* Complete rounded ends */
-    border-bottom-right-radius: 50px;  /* Complete rounded ends */
-}
-
-/* Hover effect for search box */
-.search-container:hover .search-box {
-    display: block;  /* make it visible on hover */
-}
-/* Search Container */
-.search-container {
-    position: relative;
-}
-
-/* Search Icon */
-.search-icon i.bi-search {
-    color: grey; /* Default color */
-}
-
-.search-icon:hover i.bi-search {
-    color: black; /* Color on hover */
-}
-
-/* Search Box */
-.search-box {
-    top: 100%; /* Position below the search icon */
-    left: 50%; /* Center the search box */
-    transform: translateX(-50%); /* Adjust the positioning */
-    z-index: 100; /* Appear above other elements */
-    background-color: white;
-    border: 1px solid grey;
-    border-radius: 50px; /* Fully rounded ends */
-}
-
-.search-box input.form-control {
-    border-radius: 50px; /* Fully rounded ends */
-}
-
-/* Show search box on hover */
-.search-container:hover .search-box {
-    display: block;
-}
-
-/* Make search box visible only on hover */
-.search-container:hover .search-box {
-    display: block;
-}
-
-/* For rounded ends */
-.rounded-pill {
-    border-radius: 50rem !important;
-}
-
-/* For removing grey border */
-.form-control:focus {
-    border-color: transparent;
-    box-shadow: none;
-}
-
-/* Positioning and color of search icon */
-.search-icon i {
-    color: gray;  /* set it to any color you want */
-    position: relative;
-    z-index: 10000;
-}
-
-/* CSS */
-/* Show search box only when hovering over its container */
-.search-container:hover .search-box {
-    display: block;
-}
-
-/* Round the ends of the search box */
-.rounded-pill {
-    border-radius: 50rem !important;
-}
-
-/* Remove the grey border when the search box is focused */
-.form-control:focus {
-    border-color: transparent;
-    box-shadow: none;
-}
-
-/* Color and positioning of the search icon */
-.search-icon {
-    color: gray;
-    position: relative;
-    z-index: 1;
+.form-group {
+  margin-bottom: 20px;
 }

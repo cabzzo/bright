@@ -26,8 +26,7 @@
                     <!-- Parent element with position-relative -->
                     <!-- HTML -->
                     <li class="nav-item me-3 search-container position-relative">
-                        <!-- Search icon -->
-                        <i class="bi bi-search search-icon" style="color: gray; position: relative; z-index: 1;"></i>
+                    
                         <!-- Search box -->
                         <div class="search-box position-absolute" style="top: 0; left: 0; display: none;">
                             <input type="search" class="form-control rounded-pill" placeholder="Search" aria-label="Search" style="border: none;">
@@ -45,7 +44,7 @@
                             <li><a href="{% url 'logout' %}">Logout</a></li>
                           {% else %}
                             <li><a href="{% url 'login' %}">Login</a></li>
-                            <li><a href="{% url 'create_profile' %}">Create Profile</a></li>
+                            <li><a href="{% url 'create_user_profile' %}">Create Profile</a></li>
                             <li><a href="{% url 'explore' %}">Explore</a></li>
                           {% endif %}
                           
@@ -108,5 +107,18 @@
         });
     </script>
     
+    <script>
+        $(document).ready(function() {
+          $(".navbar-toggler").click(function() {
+            if ($('#navbarNav').hasClass('show')) {
+              $(".navbar-nav").removeClass("justify-content-center");
+            } else {
+              $(".navbar-nav").addClass("justify-content-center");
+            }
+          });
+        });
+      </script>
+      
+
 </body>
 </html>

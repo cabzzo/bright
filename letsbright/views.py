@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-# Existing imports
 from .forms import RegistrationForm, LoginForm, SpaceForm, ProductForm, DesignForm, OrderForm
 from .models import Space
 from django.http import JsonResponse
@@ -44,17 +43,18 @@ def login_view(request):
         form = LoginForm(request)
     return render(request, 'registration/login.html', {'form': form})
 
+# Create Space
 def create_space(request):
     if request.method == 'POST':
         form = SpaceForm(request.POST)
         if form.is_valid():
             space = form.save()
-            # Perform any additional operations related to space creation
             return redirect('space_detail', space_id=space.pk)
     else:
         form = SpaceForm()
     return render(request, 'create_space.html', {'form': form})
 
+# Add Product
 def add_product(request, space_id):
     if request.method == 'POST':
         form = ProductForm(request.POST)
@@ -62,57 +62,70 @@ def add_product(request, space_id):
             product = form.save(commit=False)
             product.space_id = space_id
             product.save()
-            # Perform any additional operations related to product addition
             return redirect('space_detail', space_id=space_id)
     else:
         form = ProductForm()
     return render(request, 'add_product.html', {'form': form})
 
+# Space Detail
 def space_detail(request, space_id):
     space = get_object_or_404(Space, pk=space_id)
     return render(request, 'space_detail.html', {'space': space})
 
+# Save Design
 def save_design(request):
     if request.method == 'POST':
         form = DesignForm(request.POST)
         if form.is_valid():
             design = form.save()
-            # Perform any additional operations related to design saving
             return redirect('design_detail', design_id=design.pk)
     else:
         form = DesignForm()
     return render(request, 'save_design.html', {'form': form})
 
+# Place Order
 def place_order(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
             order = form.save()
-            # Perform any additional operations related to order placement
             return redirect('order_detail', order_id=order.pk)
     else:
         form = OrderForm()
     return render(request, 'place_order.html', {'form': form})
+
+# Cart JSON
 def cart_json(request):
     cart_data = {
         "item": "Example Item",
         "quantity": 2,
-        # ... other cart data
     }
     return JsonResponse(cart_data)
+
+# About
 def about(request):
     return render(request, 'about.html')
-def register(request):
-    # Your registration logic here
-    return render(request, 'register.html')
+
+
+# Settings View
 @login_required
 def settings_view(request):
-    # Your settings logic here
     return render(request, 'settings.html')
+
+# Logout View
 @login_required
 def logout_view(request):
     logout(request)
     return redirect('home')
-def create_profile(request):
-    # Your logic for creating a profile
-    return render(request, 'create_profile.html')
+
+# Create Profile
+def create_user_profile(request):
+    if request.method == 'POST':
+        user_form = RegistrationForm(request.POST)
+        if user_form.is_valid():
+            user = user_form.save()
+            return redirect('profile')
+    else:
+        user_form = RegistrationForm()
+    
+    return render(request, 'create_user_profile.html', {'user_form': user_form})
