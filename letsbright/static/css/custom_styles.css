@@ -22,25 +22,59 @@ body {
 .navbar .nav-link { color: #5f6368; }
 .navbar .nav-link:hover { color: #b38f00; }
 
+/* Centering main menu items */
+.navbar-nav.main-menu {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Centering the navbar items when the menu is collapsed and shown */
+.collapse.show .navbar-nav {
+  justify-content: center;
+  width: 100%;
+}
+
+.collapse.show .navbar-nav .nav-item {
+  text-align: center;
+}
+
+.centered-when-collapsed {
+  justify-content: center;
+}
+
 /* Dropdown Settings */
 .navbar .dropdown-menu {
-  transition: 0.4s;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+  border-radius: 20px;
 }
 .navbar .dropdown-menu a {
   color: #333;
   text-decoration: none;
+  font-size: 14px;
+  padding: 5px 15px;
 }
+
 .navbar .dropdown-menu a:hover {
-  color: #007bff;
-  background-color: #f1f1f1;
-  border-radius: 15px;
+  color: #b38f00;
+  background-color: transparent;
+  border-radius: 0;
   padding: 5px 15px;
 }
 .navbar .dropdown-menu li { padding: 5px 0; }
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus, .navbar-toggler:active {
+  outline: none;
+  box-shadow: none;
+}
+
+
 
 /* Hero Section */
 .hero-section { position: relative; height: 100vh; overflow: hidden; }
@@ -86,16 +120,6 @@ body {
   min-width: 300px;
 }
 
-/* Button Settings */
-.btn-primary {
-  background-color: #ffd249;
-  border-color: #ffd249;
-  border-radius: 30px;
-}
-.btn-primary:hover {
-  background-color: #fcb935;
-  border-color: #fcb935;
-}
 
 /* Login Box */
 .login-container {
@@ -128,4 +152,72 @@ button[type="submit"] {
 }
 .form-group {
   margin-bottom: 20px;
+}
+
+/* Generic Interactive Tile */
+.interactive-tile {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  text-align: center;
+  color: #000000;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  min-height: 650px;  /* Set this to the size of your largest question */
+  max-height: 650px;
+  width: 500px;   /* or whatever width you prefer */
+  overflow-y: auto; /* to allow scrolling if content exceeds height */
+  position: relative;
+}
+
+
+/* Button Settings */
+.btn-primary {
+  background-color: #ffd249;
+  border-color: #ffd249;
+  border-radius: 30px;
+}
+.btn-primary:hover {
+  background-color: #fcb935;
+  border-color: #fcb935;
+}
+
+/* Progress Bar */
+.progress {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.progress-bar {
+    background-color: #ffd249;
+}
+
+.info-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: grey;
+  font-size: 15px;
+  font-style:normal;
+  }
+  
+
+.info-icon:hover:after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 0;
+  top: 25px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.question-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.question-body {
+  margin-top: 30px;
 }

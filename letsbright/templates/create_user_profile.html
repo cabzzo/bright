@@ -28,8 +28,20 @@
                             <input type="email" name="{{ user_form.email.name }}" placeholder="Email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="{{ user_form.password.name }}" placeholder="Password" class="form-control" required>
+                            <input type="password" name="{{ user_form.password1.name }}" placeholder="Password" class="form-control" required>
                         </div>
+                        <div class="form-group">
+                            <input type="password" name="{{ user_form.password2.name }}" placeholder="Confirm Password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age_group">Age Group</label>
+                            <select id="age_group" name="{{ user_form.age_group.name }}" class="form-control" required>
+                                <option value="Teenager">Teenager</option>
+                                <option value="Young Adult">Young Adult</option>
+                                <option value="Adult">Adult</option>
+                                <option value="Senior">Senior</option>
+                            </select>
+                        </div>                     
                         <div class="form-group">
                             <input type="text" name="{{ user_form.occupation.name }}" placeholder="Occupation" class="form-control" required>
                         </div>

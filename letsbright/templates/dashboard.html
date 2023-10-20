@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <h1>Welcome, {{ user_profile.name }}</h1>
+  
+  <div class="row">
+    <!-- User Profile Summary -->
+    <div class="col-md-3">
+      <div class="interactive-tile">
+        <h5>User Profile</h5>
+        <img src="{{ user_profile.avatar.url }}" alt="{{ user_profile.name }}" class="img-fluid">
+        <div>
+          <p>Name: {{ user_profile.name }}</p>
+          <p>Type: {{ user_profile.user_type }}</p>
+          <p>Preferences: {{ user_profile.preferences }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Connected Devices -->
+    {% for device in connected_devices %}
+    <div class="col-md-3">
+      <div class="interactive-tile">
+        <h5>Connected Device</h5>
+        <div>
+          <p>Device Type: {{ device.device_type }}</p>
+          <p>Config: {{ device.configuration_details }}</p>
+          <p>Status: {{ device.connection_status }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- Spaces -->
+    {% for space in spaces %}
+    <div class="col-md-3">
+      <div class="interactive-tile">
+        <h5>Spaces</h5>
+        <div>
+          <p>Name: {{ space.name }}</p>
+          <p>Type: {{ space.space_type }}</p>
+          <p>Dimensions: {{ space.dimensions }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- Gamification -->
+    <div class="col-md-3">
+      <div class="interactive-tile">
+        <h5>Your Achievements</h5>
+        <div>
+          <p>Points: {{ gamification.points }}</p>
+          <p>Level: {{ gamification.level }}</p>
+          <p>Challenges: {{ gamification.challenges_completed }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}

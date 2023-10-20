@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome, {{ user_profile.name }}</h1>
+
+    <!-- User Management: User Profile Summary -->
+    <section id="user-profile">
+        <h2>User Profile</h2>
+        <img src="{{ user_profile.avatar }}" alt="User Avatar">
+        <p>Name: {{ user_profile.name }}</p>
+        <p>Email: {{ user_profile.email }}</p>
+        <!-- Additional profile details -->
+    </section>
+
+    <!-- Device Management: Connected Devices -->
+    <section id="device-management">
+        <h2>Your Devices</h2>
+        <ul>
+        {% for device in connected_devices %}
+            <li>
+                <img src="{% static 'icons/'|add:device.icon %}" alt="{{ device.name }}">
+                {{ device.name }}
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Space Management: Spaces -->
+    <section id="spaces">
+        <h2>Your Spaces</h2>
+        <ul>
+        {% for space in spaces %}
+            <li>
+                {{ space.name }}
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Content Management: Educational and Storytelling Content -->
+    <section id="content-management">
+        <h2>Learn More</h2>
+        {% for content in educational_content %}
+            <article>
+                <h3>{{ content.title }}</h3>
+                <p>{{ content.summary }}</p>
+            </article>
+        {% endfor %}
+    </section>
+
+    <!-- Gamification Module: Points, Badges, Challenges -->
+    <section id="gamification">
+        <h2>Your Achievements</h2>
+        {% for badge in badges %}
+            <img src="{% static 'badges/'|add:badge.icon %}" alt="{{ badge.name }}" title="{{ badge.description }}">
+        {% endfor %}
+    </section>
+
+    <!-- Additional Components: Machine Learning, 3D Visualization -->
+    <section id="advanced-features">
+        <!-- Placeholder for machine learning insights -->
+        <!-- Placeholder for 3D visualizations -->
+    </section>
+
+</div>
+
+<!-- Machine Learning Insights -->
+<h1>Machine Learning Insights</h1>
+<!-- Display charts, graphs, etc. -->
+
+{% endblock content %}
+
+{% block extra_js %}
+  <script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock extra_js %}

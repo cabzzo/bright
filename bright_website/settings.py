@@ -112,3 +112,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_CHARSET = 'utf-8'
 
 LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = '/'

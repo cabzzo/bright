@@ -135,3 +135,4 @@ DEFAULT_PROFILES = {
         'how_bright_addresses_needs': 'Access to Bright’s sustainable construction and energy solutions.'
     }
 }
+STYLES = list(set(profile.get('style') for profile in DEFAULT_PROFILES.values() if profile.get('style')))

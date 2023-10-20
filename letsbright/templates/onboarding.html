@@ -2,49 +2,119 @@
 {% load static %}
 
 {% block content %}
-    <!-- Video Section -->
-    <div class="video-section">
-        <video src="{% static 'videos/welcome_video.mp4' %}" controls></video>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-image">
+        <img src="{% static 'images/hero-image.webp' %}" alt="Hero Image" class="img-fluid">
     </div>
+    <div class="container">
+       <!-- Interactive Tile -->
+        <div class="interactive-tile" id="interactiveTile">
+            
+            <!-- Welcome Section -->
+            <div id="welcomeSection">
+                <h1>Welcome to Bright</h1>
+                <h3>Lets customize your experience by answering this ultra short questions</h3>
+                <button id="startJourneyBtn" class="btn btn-primary">Start Journey</button>
+                <button id="continueBtn" class="btn btn-primary" style="display:none;">Continue to Dashboard</button>
+            </div>
+            
+            <!-- Quiz Section -->
+            <div id="quizSection" style="display:none;">
+                <form id="quizForm">
+                    <div class="questions">
+                        {% for field in form %}
+                        <div class="question" id="{{ field.name }}" style="display:none;">
+                            <div class="question-header">
+                                <i class="info-icon" data-tooltip="Please select one of the options">🛈</i>
+                            </div>
+                            <div class="question-body">
+                                <h3>{{ field.label }}</h3>
+                                <div class="options">
+                                    {{ field }}
+                                </div>
+                                <button class="btn btn-primary">Answer</button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+                    <!-- Progress Bar -->
+                    <div class="progress my-progress">
+                        <div class="progress-bar my-progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </form>
+            </div>
+            <!-- Continue Section -->
+            <div id="continueSection" style="display:none;">
+                <h1>Thank you for completing the quiz!</h1>
+                <h3>Your customized experience awaits.</h3>
+                <button id="continueToDashboardBtn" class="btn btn-primary">Continue to Dashboard</button>
+            </div>
+        </div>
 
-    <!-- Welcome Text -->
-    <div class="welcome-section">
-        <h1>Welcome to Bright</h1>
-        <p>Embark on a journey to make your living spaces more sustainable, intelligent, and user-centric.</p>
-    </div>
 
-    <!-- Preferences Quiz -->
-    <div class="quiz-section">
-        <h2>Let's Customize Your Journey</h2>
-       <!-- <form action="{% url 'quiz_result' %}" method="post"> -->
+  <!-- Additional Scripts -->
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const startJourneyBtn = document.getElementById('startJourneyBtn');
+    const continueBtn = document.getElementById('continueBtn');
+    const welcomeSection = document.getElementById('welcomeSection');
+    const quizSection = document.getElementById('quizSection');
+    const questions = document.querySelectorAll('.question');
+    const progressBar = document.querySelector('.progress-bar');
+    const continueSection = document.getElementById('continueSection');
+    const continueToDashboardBtn = document.getElementById('continueToDashboardBtn');
+    
+    let currentQuestion = 0;
 
-            {% csrf_token %}
+    function showContinueButton() {
+    continueSection.style.display = 'block';  // Make the continueSection visible
+    quizSection.style.display = 'none';  // Hide the quiz section
+}
 
-            <!-- Goals & Aspirations -->
-            <label for="goals">What are you looking to improve in your life?</label>
-            <select id="goals" name="goals">
-                <option value="health">Health</option>
-                <option value="productivity">Productivity</option>
-                <option value="social">Social Interactions</option>
-            </select>
 
-            <!-- Sustainability Preferences -->
-            <label for="sustainability">Choose the sustainability issues that matter most to you.</label>
-            <select id="sustainability" name="sustainability">
-                <option value="energy">Energy Efficiency</option>
-                <option value="waste">Waste Reduction</option>
-                <option value="air">Clean Air</option>
-            </select>
+    startJourneyBtn.addEventListener('click', function() {
+        welcomeSection.style.display = 'none';
+        quizSection.style.display = 'block';
+        questions[currentQuestion].style.display = 'block';
+    });
 
-            <!-- Tech Comfort -->
-            <label for="tech_comfort">Rate your comfort level with smart home technologies.</label>
-            <select id="tech_comfort" name="tech_comfort">
-                <option value="novice">Novice</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="tech_savvy">Tech-Savvy</option>
-            </select>
+    questions.forEach((question, index) => {
+        const answerBtn = question.querySelector('.btn.btn-primary');
+        const radioInputs = question.querySelectorAll('input[type="radio"]');
+        
+        answerBtn.addEventListener('click', function(event) {
+            event.preventDefault();  // Prevent form submission
 
-            <input type="submit" value="Start Journey">
-        </form>
-    </div>
+            // Validation check
+            let isSelected = Array.from(radioInputs).some(input => input.checked);
+            if (!isSelected) {
+                // Show your popup here. Replace with actual popup code.
+                alert("Please select one of the options");
+                return;
+            }
+
+            question.style.display = 'none';
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                questions[currentQuestion].style.display = 'block';
+            } else {
+                showContinueButton();
+            }
+            updateProgressBar(currentQuestion, questions.length);
+        });
+    });
+
+    function updateProgressBar(current, total) {
+        const progress = (current / total) * 100;
+        progressBar.style.width = `${progress}%`;
+    }
+
+    continueToDashboardBtn.addEventListener('click', function() {
+    window.location.href = "{% url 'dashboard' %}";
+});
+});
+  </script>
+
 {% endblock %}
